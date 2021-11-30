@@ -5,6 +5,8 @@
 
 
 # Make sure you are in the correct RStudio project/directory, and data file is present.
+# Note that these processes require considerable computing time, so it would be a good idea
+# to run the code then go for lunch, so that everything is ready once you are back. :-)
 
 
 library(tidyverse)
@@ -45,8 +47,8 @@ data <- data %>%
          DAY.M = day(OBSERVATION.DATE),
          DAY.Y = yday(OBSERVATION.DATE),
          WEEK.Y = met_week(OBSERVATION.DATE),
-         S.YEAR = if_else(DAY.Y <= 151, YEAR-1, YEAR),
-         WEEK.SY = if_else(WEEK.Y > 21, WEEK.Y-21, 52-(21-WEEK.Y))) # 4.5 min
+         M.YEAR = if_else(DAY.Y <= 151, YEAR-1, YEAR),
+         WEEK.MY = if_else(WEEK.Y > 21, WEEK.Y-21, 52-(21-WEEK.Y))) # 4.5 min
 
 
 # Saving full dataset for India

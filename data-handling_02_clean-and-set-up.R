@@ -37,8 +37,8 @@ data <- data %>%
          DAY.M = day(OBSERVATION.DATE), # day-of-month 
          DAY.Y = yday(OBSERVATION.DATE), # day-of-year
          WEEK.Y = met_week(OBSERVATION.DATE), # week-of-year
-         S.YEAR = if_else(DAY.Y <= 151, YEAR-1, YEAR), # seasonal year (from 1st June to 31st May)
-         WEEK.SY = if_else(WEEK.Y > 21, WEEK.Y-21, 52-(21-WEEK.Y)) # week-of-seasonal-year
+         M.YEAR = if_else(DAY.Y <= 151, YEAR-1, YEAR), # migratory year (from 1st June to 31st May)
+         WEEK.MY = if_else(WEEK.Y > 21, WEEK.Y-21, 52-(21-WEEK.Y)) # week-of-migratory-year
   )
 
 # Overwrites earlier .RData file with updated data. If undesired use different name. (<2 min)
